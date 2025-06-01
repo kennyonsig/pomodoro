@@ -1,0 +1,119 @@
+main {
+  padding: 30px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  @media (min-width: 768px) {
+    padding: 50px 30px;
+  }
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #4de536;
+  font-weight: 700;
+  padding-bottom: 15px;
+
+  @media (min-width: 768px) {
+    font-size: 3.5rem;
+    margin-bottom: 30px;
+  }
+}
+
+.pomodoro {
+  color: #eb151d;
+}
+
+p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #00ff4a;
+  margin-bottom: 40px;
+  max-width: 600px;
+
+  @media (min-width: 768px) {
+    font-size: 1.25rem;
+    margin-bottom: 60px;
+  }
+}
+
+.timer {
+  display: grid;
+  grid-template-columns: 30% 1fr minmax(200px, 1fr);
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "settings timer plant"
+    "settings stats plant";
+  width: 100%;
+  max-width: 1400px;
+  gap: 5px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 50% 1fr;
+    grid-template-areas:
+      "settings timer"
+      "settings stats";
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "timer"
+      "stats"
+      "settings";
+    gap: 5px;
+    justify-items: center;
+    max-width: 500px;
+  }
+
+  app-settings {
+    grid-area: settings;
+
+    @media (max-width: 1024px) {
+      min-width: 100%;
+    }
+  }
+
+  app-stats {
+    grid-area: stats;
+    min-width: 100%;
+  }
+
+  app-plant-visualizer {
+    grid-area: plant;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  app-timer {
+    grid-area: timer;
+    max-width: 600px;
+    border-radius: 16px;
+  }
+}
+
+.decoration {
+  position: fixed;
+  z-index: -1;
+  opacity: .05;
+
+  &--leaf-1 {
+    top: 10%;
+    left: 5%;
+    font-size: 15rem;
+    transform: rotate(-15deg);
+  }
+
+  &--leaf-2 {
+    bottom: 15%;
+    right: 5%;
+    font-size: 12rem;
+    transform: rotate(25deg);
+  }
+}

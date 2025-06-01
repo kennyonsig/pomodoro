@@ -1,0 +1,141 @@
+.timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #e4e8f0;
+
+  @media (max-width: 1024px) {
+    border-top-right-radius: 30px;
+  }
+
+  @media (max-width: 768px) {
+    border-top-left-radius: 30px;
+  }
+
+
+
+  &__display {
+    font-size: 6rem;
+    font-weight: bold;
+    margin: 1rem 0 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Courier New', monospace;
+
+    @media (max-width: 480px) {
+      font-size: 4rem;
+      margin: .5rem 0 1.5rem;
+    }
+  }
+
+  &__minutes,
+  &__seconds {
+    min-width: 90px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__colon {
+    animation: blink 1.2s step-end infinite;
+    margin: 0 5px;
+    position: relative;
+    top: -3px;
+  }
+
+  &__mode-controls {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (max-width: 480px) {
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__mode-button {
+    padding: 10px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    background-color: rgba(131, 126, 126, 0.36);
+    border: 1px solid #837e7e;
+    color: #333;
+
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    &.active {
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      background-color: #f44336;
+      border-color: #d32f2f;
+    }
+  }
+
+  &__action-controls {
+    display: flex;
+    gap: 24px;
+    margin-top: 10px;
+
+    @media (max-width: 480px) {
+      gap: 18px;
+    }
+  }
+
+  &__action-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      background: #e0e0e0;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &--start {
+      background: #4CAF50;
+      .timer__action-icon { color: white; }
+    }
+
+    &--pause {
+      background: #FFC107;
+      .timer__action-icon { color: white; }
+    }
+
+    &--reset {
+      background: #F44336;
+      .timer__action-icon { color: white; }
+    }
+  }
+
+  &__action-icon {
+    font-size: 2.8rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    transition: transform 0.2s ease;
+  }
+
+}

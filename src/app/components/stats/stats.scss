@@ -1,0 +1,14 @@
+@use '../_shared.scss';
+
+
+@media (max-width: 1024px) {
+  section {
+    border-bottom-right-radius: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    border-radius: 0;
+  }
+}

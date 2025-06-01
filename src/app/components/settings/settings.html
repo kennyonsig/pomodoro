@@ -1,0 +1,45 @@
+<section class="settings">
+  <h2 class="settings__title">Настройки</h2>
+  <form class="settings__form">
+    <div class="settings__field">
+      <label class="settings__label" for="work-input">Время работы</label>
+      <input class="settings__input"
+             type="number"
+             id="work-input"
+             [(ngModel)]="workValue"
+             (ngModelChange)="updateWorkMinutes($event)"
+             name="work"
+      >
+    </div>
+    <div class="settings__field">
+      <label class="settings__label" for="short-break-input">Короткий перерыв</label>
+      <input class="settings__input"
+             type="number"
+             id="short-break-input"
+             [(ngModel)]="shortBreakValue"
+             (ngModelChange)="updateShortMinutes($event)"
+             name="short"
+      >
+    </div>
+    <div class="settings__field">
+      <label class="settings__label" for="long-break-input">Длинный перерыв</label>
+      <input class="settings__input"
+             type="number"
+             id="long-break-input"
+             [(ngModel)]="longBreakValue"
+             (ngModelChange)="updateLongMinutes($event)"
+             name="long"
+      >
+    </div>
+    <div class="settings__field">
+      <label class="settings__label" for="extra-time-input">Дополнительное время</label>
+      <input class="settings__input"
+             type="number"
+             id="extra-time-input"
+             [(ngModel)]="extraTimeValue"
+             (ngModelChange)="updateExtraMinutes($event)"
+             name="extra"
+      >
+    </div>
+  </form>
+</section>

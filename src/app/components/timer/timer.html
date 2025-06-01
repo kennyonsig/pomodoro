@@ -1,0 +1,59 @@
+<section class="timer">
+  <div class="timer__mode-controls">
+    <button
+      (click)="switchMode('work')"
+      class="timer__mode-button timer__mode-button--work"
+      [class.active]="isActiveMode('work')">
+      Работа
+    </button>
+
+    <button
+      (click)="switchMode('short-break')"
+      class="timer__mode-button timer__mode-button--short-break"
+      [class.active]="isActiveMode('short-break')">
+      Короткий перерыв
+    </button>
+
+    <button
+      (click)="switchMode('long-break')"
+      class="timer__mode-button timer__mode-button--long-break"
+      [class.active]="isActiveMode('long-break')">
+      Длинный перерыв
+    </button>
+
+    <button
+      (click)="switchMode('extra')"
+      class="timer__mode-button timer__mode-button--extra"
+      [class.active]="isActiveMode('extra')">
+      Доп время
+    </button>
+  </div>
+
+  <div class="timer__display">
+    <span class="timer__minutes">{{ minutes() }}</span>
+    <span class="timer__colon">:</span>
+    <span class="timer__seconds">{{ seconds() }}</span>
+  </div>
+
+  <div class="timer__action-controls">
+    <button mat-icon-button
+            class="timer__action-button timer__action-button--start"
+            (click)="startTimer()"
+            [disabled]="isRunning() || currentTime() <= 0">
+      <mat-icon class="timer__action-icon">play_arrow</mat-icon>
+    </button>
+
+    <button mat-icon-button
+            class="timer__action-button timer__action-button--pause"
+            (click)="pauseTimer()"
+            [disabled]="!isRunning()">
+      <mat-icon class="timer__action-icon">pause_circle_filled</mat-icon>
+    </button>
+
+    <button mat-icon-button
+            class="timer__action-button timer__action-button--reset"
+            (click)="resetTimer()">
+      <mat-icon class="timer__action-icon">replay</mat-icon>
+    </button>
+  </div>
+</section>
