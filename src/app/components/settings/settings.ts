@@ -1,44 +1,34 @@
-import {Component, inject, OnInit} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {SettingsService} from '../../services/settings';
+import { Component, inject, WritableSignal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { SettingGroup } from '../../interfaces/settings.interface';
+import { SettingsService } from '../../services/settings';
+
+import { SETTINGS_CONFIG } from './settingsConfig';
 
 @Component({
   selector: 'app-settings',
-  imports: [
-    FormsModule
-  ],
+  imports: [FormsModule],
   templateUrl: './settings.html',
-  styleUrl: './settings.scss'
+  styleUrl: './settings.scss',
 })
-export class Settings implements OnInit {
-
-  workValue!: number;
-  shortBreakValue!: number;
-  longBreakValue!: number;
-  extraTimeValue!: number;
+export class Settings {
+  settingsConf: SettingGroup[] = SETTINGS_CONFIG;
 
   settingsService = inject(SettingsService);
 
-  ngOnInit() {
-    this.workValue = this.settingsService.settingWorkMinutes();
-    this.shortBreakValue = this.settingsService.settingShortMinutes();
-    this.longBreakValue = this.settingsService.settingLongMinutes();
-    this.extraTimeValue = this.settingsService.settingExtraMinutes();
-  }
+  signalsMap: Record<string, WritableSignal<number>> = {
+    workValue: this.settingsService.settingWorkMinutes,
+    shortBreakValue: this.settingsService.settingShortMinutes,
+    longBreakValue: this.settingsService.settingLongMinutes,
+    extraTimeValue: this.settingsService.settingExtraMinutes,
+    workValueSec: this.settingsService.settingWorkSec,
+    shortBreakValueSec: this.settingsService.settingShortSec,
+    longBreakValueSec: this.settingsService.settingLongSec,
+    extraTimeValueSec: this.settingsService.settingExtraSec,
+  };
 
-  updateWorkMinutes(value: number) {
-    this.settingsService.settingWorkMinutes.set(+value);
-  }
-
-  updateShortMinutes(value: number) {
-    this.settingsService.settingShortMinutes.set(+value);
-  }
-
-  updateLongMinutes(value: number) {
-    this.settingsService.settingLongMinutes.set(+value);
-  }
-
-  updateExtraMinutes(value: number) {
-    this.settingsService.settingExtraMinutes.set(+value);
+  updateSetting(key: string, value: string | number) {
+    this.signalsMap[key].set(Number(value));
   }
 }

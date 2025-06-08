@@ -7,11 +7,14 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #104b7b;
-  min-height: 100vh;
-  margin: 0 auto;
+html, body {
+  height: 100%;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  background-color: #1d2f3e;
+  min-height: 100vh;
+  margin: 0 auto;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+

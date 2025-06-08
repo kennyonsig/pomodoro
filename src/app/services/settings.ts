@@ -1,11 +1,15 @@
-import {Injectable, signal} from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SettingsService {
   settingWorkMinutes = signal<number>(25);
-  settingShortMinutes = signal<number>(2);
-  settingLongMinutes = signal<number>(2);
-  settingExtraMinutes = signal<number>(2);
+  settingWorkSec = signal<number>(0);
+  settingShortMinutes = signal<number>(5);
+  settingShortSec = signal<number>(0);
+  settingLongMinutes = signal<number>(30);
+  settingLongSec = signal<number>(0);
+  settingExtraMinutes = signal<number>(10);
+  settingExtraSec = signal<number>(0);
 }

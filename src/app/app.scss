@@ -14,9 +14,10 @@ main {
 h1 {
   font-size: 2.8rem;
   margin-bottom: 20px;
-  color: #4de536;
+  color: #1fca6b;
   font-weight: 700;
   padding-bottom: 15px;
+  letter-spacing: -0.5px;
 
   @media (min-width: 768px) {
     font-size: 3.5rem;
@@ -25,19 +26,49 @@ h1 {
 }
 
 .pomodoro {
-  color: #eb151d;
+  color: #e74c3c;
+}
+
+.decoration {
+  position: fixed;
+  z-index: -1;
+  opacity: .08;
+  filter: blur(3px);
+
+  &:hover {
+    opacity: .12;
+  }
+
+  &--leaf-1 {
+    top: 10%;
+    left: 5%;
+    font-size: 16rem;
+    transform: rotate(-15deg);
+  }
+
+  &--leaf-2 {
+    bottom: 15%;
+    right: 5%;
+    font-size: 13rem;
+    transform: rotate(25deg);
+  }
 }
 
 p {
   font-size: 1.1rem;
-  line-height: 1.7;
-  color: #00ff4a;
+  line-height: 1.8;
+  color: #1fca6b;
   margin-bottom: 40px;
-  max-width: 600px;
+  max-width: 580px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 
   @media (min-width: 768px) {
     font-size: 1.25rem;
     margin-bottom: 60px;
+    padding: 25px 30px;
   }
 }
 
@@ -98,22 +129,4 @@ p {
   }
 }
 
-.decoration {
-  position: fixed;
-  z-index: -1;
-  opacity: .05;
 
-  &--leaf-1 {
-    top: 10%;
-    left: 5%;
-    font-size: 15rem;
-    transform: rotate(-15deg);
-  }
-
-  &--leaf-2 {
-    bottom: 15%;
-    right: 5%;
-    font-size: 12rem;
-    transform: rotate(25deg);
-  }
-}

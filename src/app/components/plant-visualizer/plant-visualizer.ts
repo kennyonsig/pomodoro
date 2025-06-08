@@ -4,8 +4,6 @@ import { Component } from '@angular/core';
   selector: 'app-plant-visualizer',
   imports: [],
   templateUrl: './plant-visualizer.html',
-  styleUrl: './plant-visualizer.scss'
+  styleUrl: './plant-visualizer.scss',
 })
-export class PlantVisualizer {
-
-}
+export class PlantVisualizer {}
